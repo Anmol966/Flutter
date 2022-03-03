@@ -29,7 +29,9 @@ class _NewMessageState extends State<NewMessage> {
       'userImage': userData['image'],
     });
     _controller.clear();
-    _enteredMessage = '';
+    setState(() {
+      _enteredMessage = '';
+    });
   }
 
   @override
@@ -62,7 +64,7 @@ class _NewMessageState extends State<NewMessage> {
               iconSize: 35,
               color: Color(0xff4f2dcc), //Theme.of(context).primaryColor,
               icon: Icon(Icons.send),
-              onPressed: _enteredMessage.trim().isEmpty ? () {} : _sendMessage)
+              onPressed: _enteredMessage.trim().isEmpty ? null : _sendMessage)
         ],
       ),
     );
